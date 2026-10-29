@@ -1,0 +1,15 @@
+# Keys and secrets never belong here. They live in the OS keychain / user environment.
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+id_*
+!id_*.pub
+*.kdbx
+keys.env
+
+# Agent-local settings
+.claude/settings.local.json
+.DS_Store
