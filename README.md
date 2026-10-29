@@ -9,7 +9,7 @@
 
 Your domains are registered in one place and your DNS lives in another. One site runs on Vercel, another on a VPS. There's a database somewhere, maybe a NAS at home, and a dozen dashboards you log into twice a year. Every change starts with an hour of remembering how it all fits together.
 
-**infra-hq turns a private GitHub repo into the headquarters for all of it.** Your agent (Claude Code, Codex, Gemini CLI, Antigravity or any other agent that reads `AGENTS.md`) interviews you, connects to your services with least-privilege keys, maps everything you run, and writes it down. From then on you open your agent and ask, and it gets done.
+**infra-hq turns a private GitHub repo into the headquarters for all of it.** Your agent (Claude Code, Codex, Gemini CLI, Antigravity or any other agent that reads `AGENTS.md`) interviews you, connects to your services with keys scoped to what you want it to handle, maps everything you run, and writes it down. From then on you open your agent and ask, and it gets done.
 
 ## How it works
 
@@ -24,7 +24,7 @@ flowchart LR
 1. **Create your copy.** Click **Use this template**, and make the new repo **private**.
 2. **Open your agent in it** and say *"Set me up."*
 3. **Have a conversation.** The agent asks what you run, what you want to be able to ask for, and what must never be touched. No forms, and no assumptions about your stack beyond GitHub.
-4. **Connect.** The agent tells you exactly which keys to create, with the narrowest permissions that work. You paste them into a local script, never into the chat. The agent tests every connection.
+4. **Connect.** The agent tells you exactly which keys to create: enough permissions to do real work on everything you want handled, nothing for billing or deleting your account. You paste them into a local script, never into the chat. The agent tests every connection.
 5. **Discover.** The agent walks your DNS zones, servers, apps and databases, and links each domain to its host, its app and its GitHub repo. It flags what looks wrong: dangling DNS records, missing backups, forgotten servers.
 6. **Write it down.** You get a living map of your infrastructure, a to-do list of findings, and a guide for connecting your next computer.
 
@@ -75,7 +75,7 @@ You'll need the GitHub CLI (`gh`) and a few minutes per service to create its ke
 ## FAQ
 
 **Is it safe to give an AI agent this much access?**
-You decide how much. Keys are scoped to what you want managed (read-only is fine), risky actions require your explicit confirmation, and every change is backed up and logged in git. The agent works in your terminal with your permissions, so treat it like a capable colleague with a checklist, not an autopilot.
+You decide how much. Keys are scoped to what you want managed: full write access there, read-only where you'd rather just watch, and nothing for billing or account deletion. Risky actions require your explicit confirmation, and every change is backed up and logged in git. The agent works in your terminal with your permissions, so treat it like a capable colleague with a checklist, not an autopilot.
 
 **Why must my copy be private?**
 It will contain your domains, server addresses, account IDs and a map of everything you run. No secrets, but plenty an attacker would like to know. The agent checks this before it starts.
@@ -95,7 +95,7 @@ infra-hq grew out of a real setup: one person running a small business with a do
 
 ## Contributing
 
-New service recipes, playbooks and pitfalls are very welcome. Keep recipes generic (no personal domains or IDs) and practical: how to connect, the narrowest permissions, a read-only test, and what bit you.
+New service recipes, playbooks and pitfalls are very welcome. Keep recipes generic (no personal domains or IDs) and practical: how to connect, which permissions real tasks need, a read-only test, and what bit you.
 
 ## License
 

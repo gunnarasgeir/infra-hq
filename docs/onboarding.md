@@ -1,6 +1,6 @@
 # Onboarding
 
-> **For the agent.** You are in onboarding mode because `docs/infrastructure.md` does not exist yet. Your job is to turn this empty template into the user's infrastructure HQ: understand what they have, connect to it with least-privilege access, map it, and write it down.
+> **For the agent.** You are in onboarding mode because `docs/infrastructure.md` does not exist yet. Your job is to turn this empty template into the user's infrastructure HQ: understand what they have, connect to it with enough access to do real work (but nothing it does not need), map it, and write it down.
 >
 > **Assume nothing except GitHub.** The user may host on a VPS, a PaaS, shared hosting, a NAS at home, or all of them. They may use Cloudflare, their registrar's DNS, or something you have never heard of. Ask, then adapt.
 >
@@ -46,9 +46,11 @@ Summarize what you heard in a short table (service, what it is used for, how muc
 
 ## Phase 2: Access plan
 
+**Enough access to do the job.** The goal is an agent that can actually do what the user asks, not a read-only observer. Size each key by *what the user wants to be able to ask for* (Phase 1) and give it write access for all of that. Make it smaller by leaving out what no task needs: billing and payments, deleting the account, managing other users and tokens, and admin or root scopes that can read every secret. When unsure about a permission that serves a task the user listed, include it. A key that is too narrow sends the user back to the dashboard mid-task; a key that is too broad is a risk. Day-to-day safety comes from the rules in `AGENTS.md` (confirm first, back up, never delete for good), not from crippled keys.
+
 For each service in the confirmed list:
 
-1. Look for a recipe in `services/`. If there is none, research the provider's official API and CLI documentation and **write a new recipe** from `services/_template.md`: how to authenticate, the narrowest key permissions that cover what the user wants, a read-only test command, and known pitfalls. Recipes are generic: no personal domains, IDs or IPs in them.
+1. Look for a recipe in `services/`. If there is none, research the provider's official API and CLI documentation and **write a new recipe** from `services/_template.md`: how to authenticate, which key permissions cover typical tasks (and which to leave out), a read-only test command, and known pitfalls. Recipes are generic: no personal domains, IDs or IPs in them.
 2. Prefer, in this order: an official CLI or REST API with a scoped token, then SSH with a key, then an MCP server. CLI, API and SSH work with every agent. MCP servers are optional extras.
 3. For each key, decide the **environment variable name** (follow the provider's convention, e.g. `CLOUDFLARE_API_TOKEN`, `HCLOUD_TOKEN`, `DIGITALOCEAN_TOKEN`) and, if the API supports a simple bearer-token check, a **verify URL**.
 

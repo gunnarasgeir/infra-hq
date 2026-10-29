@@ -41,7 +41,7 @@ These apply always, in this repo and in every other repo of the user's (see **Ot
 - **Never ask for keys, tokens or passwords in the chat.** Never print them, never echo them, never write them into a file in this repo. If you see one by accident, never repeat it.
 - The user stores keys with `scripts/set-key.sh` (macOS/Linux) or `scripts\set-key.cmd` (Windows), **with the agent closed**, because agents display file changes and terminal input. Keys become environment variables in new terminals.
 - Commands that prompt for a password (`sudo`, `gh auth login`, NAS admin login) are run by the user, not by you.
-- Prefer least-privilege keys. When a key is missing or lacks a permission, tell the user exactly which permission to add and where (see `services/<name>.md`), and point to `scripts/set-key.*`.
+- Keys should cover everything the user wants you to do, with write access, and leave out what no task needs (billing, account deletion, user and token management, root or admin scopes). When a task fails because a key is missing or lacks a permission, tell the user exactly which permission to add and where (see `services/<name>.md`), and point to `scripts/set-key.*`.
 - **APIs sometimes return secrets** (connection strings, generated passwords). Filter responses before they reach the chat, e.g. `| python3 -c "import sys,json; print(json.load(sys.stdin)['id'])"`.
 - **Never pipe a secret into something that executes stdin as a script** (e.g. `ssh host "bash -c \"\$(cat)\""`). If the script fails, the secret is executed as a command and shows up in error messages. Copy the script to the server first, then run it with the secret on stdin.
 

@@ -9,7 +9,7 @@ One or two sentences: what this service is and what an agent typically does with
 | Method | Official CLI / REST API / SSH / MCP |
 | Key | `ENV_VARIABLE_NAME` |
 | Create it at | Exact settings page (URL or menu path) |
-| Permissions | The narrowest set that covers what the user wants. Say which ones are read-only and which allow changes. |
+| Permissions | What typical tasks need (with write access), and what to leave out (billing, account deletion, user/token management, root). Say which ones are read-only and which allow changes. |
 | Verify URL | An endpoint that returns 2xx for a valid bearer token, for `scripts/keys.conf` (or "none") |
 | API docs | Link |
 
