@@ -22,7 +22,7 @@ Then ask. **A few questions at a time, conversationally**, not a long form. Foll
 - What should I call you? What do you do, and what is all this infrastructure for (business, side projects, family)?
 - Which language do you want me to speak, and which language should the docs in this repo be written in?
 - Which computers do you work from (OS)? Which AI coding agents do you use (Claude Code, Codex, Gemini CLI, Antigravity, Cursor, ...)?
-- Where do you keep passwords (password manager)? Keys we create should be saved there too.
+- Where do you keep passwords (password manager)? Keys we create should be saved there too. If it is 1Password, keys can live there directly: see `INFRA_HQ_KEYSTORE=1password` in `scripts/lib-keys.sh`.
 
 **What they have.** Let them talk, then fill gaps:
 - **Domains:** which ones, where are they registered, where is DNS managed?
