@@ -6,6 +6,7 @@
 #           ~/.config/infra-hq/keys.env (readable only by the user)
 #   1password (opt-in, needs the `op` CLI): one "API Credential" item per key, titled with
 #           the variable name, field "credential", in vault $INFRA_HQ_OP_VAULT (default infra-hq).
+#           Create that vault in 1Password first: set-key.sh does not create it.
 #           On a personal machine set INFRA_HQ_OP_ACCOUNT (shorthand or sign-in address) so
 #           keys never land in the wrong account, e.g. a work account. On a headless machine
 #           set OP_SERVICE_ACCOUNT_TOKEN instead (a service account scoped to that vault).
