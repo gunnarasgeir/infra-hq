@@ -3,6 +3,11 @@
 #   export INFRA_HQ_DIR="$HOME/path/to/infra-hq"
 #   source "$INFRA_HQ_DIR/scripts/load-keys.sh"
 # Keys are stored with scripts/set-key.sh.
+#
+# With INFRA_HQ_KEYSTORE=1password, sourcing this from ~/.zshrc asks for Touch ID in every
+# new shell (agents open many). Instead, export the INFRA_HQ_* settings in ~/.zshrc and
+# load keys in the same command that needs them:
+#   source "$INFRA_HQ_DIR/scripts/load-keys.sh" && <command>
 
 if [ -z "${INFRA_HQ_DIR:-}" ] || [ ! -f "$INFRA_HQ_DIR/scripts/keys.conf" ]; then
     echo "load-keys.sh: set INFRA_HQ_DIR to the infra-hq repo before sourcing this file" >&2

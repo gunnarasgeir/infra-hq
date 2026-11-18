@@ -39,7 +39,7 @@ After that, every repo you open knows where your HQ is. Ask for a DNS change whi
 **Your memory lives in git, not in a chat.** Everything the agent learns goes into the repo: what runs where, what changed and why, what broke last time. Switch computers, switch agents or switch subscriptions, and nothing is lost.
 
 **Guardrails are built in:**
-- **Keys never touch the chat.** They go into your OS keychain (or Windows user environment) through a small script you run with the agent closed.
+- **Keys never touch the chat.** They go into your OS keychain (or Windows user environment, or 1Password) through a small script you run with the agent closed.
 - **Confirm first.** The agent asks before deleting anything, changing live DNS or mail records, restarting production or spending money.
 - **Back up before change.** Settings are saved to `history/` before they're modified, with a note on how to restore them.
 - **Nothing is deleted for good.** Data is moved aside, or you get the command to run yourself.
